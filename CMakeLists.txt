@@ -23,6 +23,7 @@ endif()
 file(GLOB_RECURSE SOURCES src/*.cpp)
 
 add_executable(DX11App WIN32 ${SOURCES})
+add_library(DX11Lib SHARED ${SOURCES})
 
 # ----------------------------
 # Windows / DirectX libraries
@@ -55,4 +56,38 @@ target_compile_definitions(DX11App
         _UNICODE
         WIN32_LEAN_AND_MEAN
         NOMINMAX
+)
+
+# ----------------------------
+# Windows / DirectX libraries
+# ----------------------------
+target_link_libraries(DX11Lib
+        PRIVATE
+        d3d11
+        dxgi
+        d3dcompiler
+        dxguid
+        user32
+        gdi32
+        winmm
+)
+
+# ----------------------------
+# Include directories
+# ----------------------------
+target_include_directories(DX11Lib
+        PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/ImGui
+)
+
+# ----------------------------
+# Unicode & Windows defines
+# ----------------------------
+target_compile_definitions(DX11Lib
+        PRIVATE
+        UNICODE
+        _UNICODE
+        WIN32_LEAN_AND_MEAN
+        NOMINMAX
+        _WINDLL
 )
