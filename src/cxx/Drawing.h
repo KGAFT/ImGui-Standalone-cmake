@@ -1,6 +1,8 @@
 #ifndef DRAWING_H
 #define DRAWING_H
 
+#include <cstdint>
+
 #include "pch.h"
 
 class Drawing
@@ -12,9 +14,10 @@ private:
 	static bool bDraw;
 
 public:
+	static void Init();
 	static void Active();
 	static bool isActive();
-	static void Draw();
+	static void Draw(uint32_t monitor_width, uint32_t monitor_height);
 };
 
 #endif
