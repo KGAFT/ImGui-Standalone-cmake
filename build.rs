@@ -11,7 +11,7 @@ fn main() {
     // Configure
     let status = Command::new("cmake")
         .current_dir(&build_dir)
-        .arg("../../../../../../") // path to CMakeLists.txt
+        .arg(env::var("CARGO_MANIFEST_DIR").unwrap()) // path to CMakeLists.txt
         .arg("-DCMAKE_BUILD_TYPE=Release")
         .status()
         .expect("failed to run cmake");
