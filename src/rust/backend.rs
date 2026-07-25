@@ -81,6 +81,46 @@ pub struct ColorPickerCommand{
     pub tile: *const c_char
 }
 
+
+unsafe impl Send for TextDrawCommand{}
+unsafe impl Sync for TextDrawCommand{}
+
+unsafe impl Send for LineDrawCommand{}
+unsafe impl Sync for LineDrawCommand{}
+
+unsafe impl Send for DrawRectCommand{}
+unsafe impl Sync for DrawRectCommand{}
+
+unsafe impl Send for WindowDrawCommand{}
+
+unsafe impl Sync for WindowDrawCommand{}
+
+unsafe impl Send for ButtonDrawCommand{}
+
+unsafe impl Sync for ButtonDrawCommand{}
+
+unsafe impl Send for CheckBoxCommand{}
+
+unsafe impl Sync for CheckBoxCommand{}
+
+unsafe impl Send for WindowTextDrawCommand{}
+
+unsafe impl Sync for WindowTextDrawCommand{}
+
+unsafe impl Send for SliderCommand{}
+
+unsafe impl Sync for SliderCommand{}
+
+
+unsafe impl Send for ComboBoxCommand{}
+
+unsafe impl Sync for ComboBoxCommand{}
+
+unsafe impl Send for ColorPickerCommand{}
+
+unsafe impl Sync for ColorPickerCommand{}
+
+
 unsafe extern "C" {
     pub fn initialize_context();
 
